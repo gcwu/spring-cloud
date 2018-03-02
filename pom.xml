@@ -12,6 +12,7 @@
         <module>spring-cloud-server</module>
         <module>spring-cloud-provider</module>
         <module>spring-cloud-consumer</module>
+        <module>spring-cloud-common</module>
     </modules>
 
 
