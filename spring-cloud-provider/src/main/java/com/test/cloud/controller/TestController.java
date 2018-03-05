@@ -20,6 +20,11 @@ public class TestController {
     @RequestMapping(value = "/hello/{name}", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public String hello(@PathVariable String name, HttpServletRequest request) {
+        try {
+            Thread.sleep(2000);
+        } catch (Exception e) {
+
+        }
         String res = "欢迎" + name+"端口号"+request.getRequestURL().toString();
         return res;
     }

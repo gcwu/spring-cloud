@@ -20,6 +20,10 @@ public class HelloController {
 	@ResponseBody
 	public String hello() {
 		String result = helloService.hello("hello");
+		HystrixCircuitBreaker breaker = HystrixCircuitBreaker.Factory
+				.getInstance(HystrixCommandKey.Factory
+						.asKey("HelloService#hello(String)"));
+		System.out.println("断路器状态" + breaker.isOpen());
 		return result;
 	}
 
