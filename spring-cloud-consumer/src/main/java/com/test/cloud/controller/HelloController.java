@@ -1,5 +1,7 @@
 package com.test.cloud.controller;
 
+import com.netflix.hystrix.HystrixCircuitBreaker;
+import com.netflix.hystrix.HystrixCommandKey;
 import com.test.cloud.entity.User;
 import com.test.cloud.service.HelloService;
 import org.springframework.web.bind.annotation.GetMapping;
