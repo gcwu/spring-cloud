@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring-cloud-consumer" />
         <module name="spring-cloud-dashboard" />
+        <module name="spring-cloud-gateway" />
         <module name="spring-cloud-provider" />
         <module name="spring-cloud-server" />
       </profile>
@@ -17,6 +18,7 @@
       <module name="spring-cloud-client" target="1.5" />
       <module name="spring-cloud-consumer" target="1.5" />
       <module name="spring-cloud-dashboard" target="1.5" />
+      <module name="spring-cloud-gateway" target="1.5" />
       <module name="spring-cloud-provider" target="1.5" />
       <module name="spring-cloud-server" target="1.5" />
     </bytecodeTargetLevel>

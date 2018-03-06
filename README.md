@@ -7,6 +7,7 @@
 | /spring-cloud-provider | 提供者       | 核心
 | /spring-cloud-consumer | 消费者       | 核心
 | /spring-cloud-dashboard| 监控         | 核心
+| /spring-cloud-gateway  | zuul网关         | 核心
 
 ### 环境操作
 

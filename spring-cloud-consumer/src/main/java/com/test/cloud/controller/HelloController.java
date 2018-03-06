@@ -34,4 +34,10 @@ public class HelloController {
 		return result;
 	}
 
+	@GetMapping("/hello/test1")
+	@ResponseBody
+	public User test1() {
+		User result = helloService.getUser(123);
+		return result;
+	}
 }

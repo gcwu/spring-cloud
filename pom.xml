@@ -14,6 +14,7 @@
         <module>spring-cloud-consumer</module>
         <module>spring-cloud-common</module>
         <module>spring-cloud-dashboard</module>
+        <module>spring-cloud-gateway</module>
     </modules>
 
 
