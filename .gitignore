@@ -1,0 +1,10 @@
+target
+*.classpath
+.cache
+*.settings
+build
+!.gitignore
+lib
+/bin
+/target
+.idea
