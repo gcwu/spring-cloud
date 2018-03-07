@@ -1,16 +1,22 @@
 package com.test.cloud.controller;
 
 import com.test.cloud.entity.User;
+import com.test.cloud.service.UserService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class TestController {
+
+    @Resource
+    private UserService userService;
+
     @RequestMapping(value = "/test/{id}", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public String test(@PathVariable Integer id, HttpServletRequest request) {
@@ -32,11 +38,10 @@ public class TestController {
     @RequestMapping(value = "/getUser/{id}", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public User getUser(@PathVariable Integer id, HttpServletRequest request) {
-        User u = new User();
-        u.setUserId(id);
-        u.setUsername("张三");
-        u.setPassword("123456");
-        return u;
+        User user =null;
+        user = userService.queryUserList();
+        System.out.println("获取用户信息成功"+id);
+        return user;
     }
 }
 

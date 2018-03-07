@@ -1,8 +1,11 @@
 package com.test.cloud.entity;
 
-public class User {
+import java.io.Serializable;
+import java.math.BigInteger;
 
-    private  Integer userId;
+public class User implements Serializable {
+
+    private BigInteger userId;
 
     private String username;
 
@@ -24,11 +27,11 @@ public class User {
         this.password = password;
     }
 
-    public Integer getUserId() {
+    public BigInteger getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(BigInteger userId) {
         this.userId = userId;
     }
 }
