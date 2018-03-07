@@ -22,6 +22,7 @@ public class SwaggerConfiguration {
                 .apis(RequestHandlerSelectors.basePackage("com.test.cloud"))
                 .paths(PathSelectors.any())
                 .build();
+        //
     }
 
     private ApiInfo apiInfo() {
