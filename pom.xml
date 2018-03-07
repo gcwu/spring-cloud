@@ -16,6 +16,13 @@
         <module>spring-cloud-dashboard</module>
         <module>spring-cloud-gateway</module>
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.5.10</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

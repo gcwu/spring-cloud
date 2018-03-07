@@ -34,7 +34,6 @@ public class TestController {
         String res = "欢迎" + name+"端口号"+request.getRequestURL().toString();
         return res;
     }
-
     @RequestMapping(value = "/getUser/{id}", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public User getUser(@PathVariable Integer id, HttpServletRequest request) {
