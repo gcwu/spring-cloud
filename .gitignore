@@ -8,3 +8,4 @@ lib
 /bin
 /target
 .idea
+.log

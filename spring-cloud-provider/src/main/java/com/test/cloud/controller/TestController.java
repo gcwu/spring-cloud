@@ -2,6 +2,8 @@ package com.test.cloud.controller;
 
 import com.test.cloud.entity.User;
 import com.test.cloud.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class TestController {
-
+    private static final Logger logger = LoggerFactory.getLogger(TestController.class);
     @Resource
     private UserService userService;
 
@@ -21,6 +23,7 @@ public class TestController {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public String test(@PathVariable Integer id, HttpServletRequest request) {
         String res = "拿到数字" + id+"端口号"+request.getRequestURL().toString();
+        logger.info("---->success{}",res);
         return res;
     }
     @RequestMapping(value = "/hello/{name}", method = RequestMethod.GET,
@@ -39,7 +42,7 @@ public class TestController {
     public User getUser(@PathVariable Integer id, HttpServletRequest request) {
         User user =null;
         user = userService.queryUserList();
-        System.out.println("获取用户信息成功"+id);
+        logger.info("---->获取用户信息成功");
         return user;
     }
 }
