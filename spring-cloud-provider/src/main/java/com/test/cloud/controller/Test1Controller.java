@@ -4,6 +4,7 @@ import com.test.cloud.entity.User;
 import com.test.cloud.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +15,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-public class TestController {
-    private static final Logger logger = LoggerFactory.getLogger(TestController.class);
+public class Test1Controller {
+    private static final Logger logger = LoggerFactory.getLogger(Test1Controller.class);
     @Resource
     private UserService userService;
 

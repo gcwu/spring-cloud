@@ -11,6 +11,10 @@
 
     <artifactId>spring-cloud-provider</artifactId>
 
+    <!-- 指明编译源代码时使用的字符编码，maven编译的时候默认使用的GBK编码， 通过project.build.sourceEncoding属性设置字符编码，告诉maven这个项目使用UTF-8来编译 -->
+        <properties>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+       </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -58,6 +62,27 @@
             <artifactId>mybatis</artifactId>
             <version>3.4.5</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.6</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.10</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.41</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.3</version>
+        </dependency>
+
     </dependencies>
 
 </project>

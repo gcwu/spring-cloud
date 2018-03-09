@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system.mapper.SysMapUserRoleMapper">
+
+    <resultMap id="baseResult" type="com.common.entity.domain.SysMapUserRole">
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+        <result column="ROLE_ID" jdbcType="VARCHAR" property="roleId" />
+        <result column="CREATE_USER" jdbcType="VARCHAR" property="createUser" />
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="UPDATE_USER" jdbcType="VARCHAR" property="updateUser" />
+        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    </resultMap>
+    <sql id="table_columns">
+            ID,
+            USER_ID,
+            ROLE_ID,
+            CREATE_USER,
+            CREATE_TIME,
+            UPDATE_USER,
+            UPDATE_TIME
+    </sql>
+    <sql id="entity_properties">
+            #{id},
+            #{userId},
+            #{roleId},
+            #{createUser},
+            #{createTime},
+            #{updateUser},
+            #{updateTime}
+    </sql>
+
+    <!-- 使用like用法：columnName like concat('%',#{columnName},'%') -->
+    <sql id="page_where">
+        <trim prefix="where" prefixOverrides="and | or ">
+			<if test="id != null">and ID = #{id}</if>
+            <if test="userId != null and userId != ''">and USER_ID = #{userId}</if>
+            <if test="roleId != null and roleId != ''">and ROLE_ID = #{roleId}</if>
+            <if test="createUser != null and createUser != ''">and CREATE_USER = #{createUser}</if>
+			<if test="createTime != null">and CREATE_TIME = #{createTime}</if>
+            <if test="updateUser != null and updateUser != ''">and UPDATE_USER = #{updateUser}</if>
+			<if test="updateTime != null">and UPDATE_TIME = #{updateTime}</if>
+        </trim>
+        <if test="page != null and page.sort!=null and page.sort!=''">
+            order by ${page.sort} ${page.order}
+        </if>
+        <!-- <if test="page == null or page.sort == null or page.sort == ''">order by sort </if> -->
+    </sql>
+
+    <insert id="insert" parameterType="com.common.entity.domain.SysMapUserRole">
+        insert into sys_map_user_role( <include refid="table_columns" /> )
+        values ( <include refid="entity_properties" /> )
+    </insert>
+
+    <insert id="insertBatch" parameterType="java.util.List">
+        insert into sys_map_user_role( <include refid="table_columns" /> )
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.id},
+                    #{item.userId},
+                    #{item.roleId},
+                    #{item.createUser},
+                    #{item.createTime},
+                    #{item.updateUser},
+                    #{item.updateTime}
+        )
+        </foreach>
+    </insert>
+
+    <delete id="delete" parameterType="String">
+        delete from sys_map_user_role
+        where id = #{id}
+    </delete>
+
+    <update id="deleteBatch">
+        update sys_map_user_role set delete_flag = 1
+        where id in
+        <foreach collection="array" item="id" open="(" separator="," close=")">
+        #{id}
+        </foreach>
+    </update>
+
+    <update id="deleteLogic" parameterType="String">
+        update sys_map_user_role set delete_flag = 1
+        where id = #{id}
+    </update>
+
+    <update id="update" parameterType="com.common.entity.domain.SysMapUserRole">
+        update sys_map_user_role
+        <trim prefix="set" suffixOverrides=",">
+            <if test="userId != null and userId != ''">USER_ID = #{userId},</if>
+            <if test="roleId != null and roleId != ''">ROLE_ID = #{roleId},</if>
+            <if test="createUser != null and createUser != ''">CREATE_USER = #{createUser},</if>
+			<if test="createTime != null">CREATE_TIME = #{createTime},</if>
+            <if test="updateUser != null and updateUser != ''">UPDATE_USER = #{updateUser},</if>
+			<if test="updateTime != null">UPDATE_TIME = #{updateTime},</if>
+        </trim>
+        <where>id = #{id}</where>
+    </update>
+
+    <select id="findAll" resultMap="baseResult">
+        select <include refid="table_columns" />
+        from sys_map_user_role
+    </select>
+
+    <select id="findList" resultMap="baseResult">
+        select <include refid="table_columns" />
+        from sys_map_user_role
+        <include refid="page_where" />
+    </select>
+
+    <select id="getCount" resultType="int" >
+        select count(id) from sys_map_user_role
+        <include refid="page_where" />
+    </select>
+
+
+    <select id="get" resultMap="baseResult" parameterType="String" >
+        select <include refid="table_columns" />
+        from sys_map_user_role
+        where id = #{id}
+    </select>
+
+    <!-- 其他自定义SQL -->
+</mapper>
