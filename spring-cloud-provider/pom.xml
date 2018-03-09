@@ -10,6 +10,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-cloud-provider</artifactId>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencyManagement>
         <dependencies>
@@ -51,8 +63,6 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.41</version>
         </dependency>
-
-
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>

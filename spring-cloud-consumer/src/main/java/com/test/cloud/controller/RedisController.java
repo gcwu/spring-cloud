@@ -1,7 +1,6 @@
 package com.test.cloud.controller;
 
 import com.test.cloud.entity.User;
-import com.test.cloud.service.RedisService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;

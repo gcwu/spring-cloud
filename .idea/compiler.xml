@@ -13,14 +13,13 @@
         <module name="spring-cloud-server" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="spring-cloud" target="1.5" />
-      <module name="spring-cloud-client" target="1.5" />
-      <module name="spring-cloud-consumer" target="1.5" />
-      <module name="spring-cloud-dashboard" target="1.5" />
-      <module name="spring-cloud-gateway" target="1.5" />
-      <module name="spring-cloud-provider" target="1.5" />
-      <module name="spring-cloud-server" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="spring-cloud" target="1.8" />
+      <module name="spring-cloud-consumer" target="1.8" />
+      <module name="spring-cloud-dashboard" target="1.8" />
+      <module name="spring-cloud-gateway" target="1.8" />
+      <module name="spring-cloud-provider" target="1.8" />
+      <module name="spring-cloud-server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
