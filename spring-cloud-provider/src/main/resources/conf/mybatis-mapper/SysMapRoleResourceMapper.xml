@@ -1,132 +1,132 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace=" com.system.mapper.SysMapRoleResourceMapper">
-    <!--<resultMap id="baseResult" type="com.common.entity.domain.SysMapRoleResource" >-->
-        <!--<id column="ID" jdbcType="INTEGER" property="id" />-->
-        <!--<result column="ROLE_ID" jdbcType="VARCHAR" property="roleId" />-->
-        <!--<result column="RESOURCE_ID" jdbcType="VARCHAR" property="resourceId" />-->
-        <!--<result column="RESOURCE_TYPE" jdbcType="VARCHAR" property="resourceType" />-->
-        <!--<result column="CRATE_USER" jdbcType="VARCHAR" property="crateUser" />-->
-        <!--<result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />-->
-        <!--<result column="UPDATE_USER" jdbcType="VARCHAR" property="updateUser" />-->
-        <!--<result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />-->
-    <!--</resultMap>-->
+<mapper namespace="com.system.mapper.SysMapRoleResourceMapper">
+    <resultMap id="baseResult" type="com.common.entity.domain.SysMapRoleResource" >
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="ROLE_ID" jdbcType="VARCHAR" property="roleId" />
+        <result column="RESOURCE_ID" jdbcType="VARCHAR" property="resourceId" />
+        <result column="RESOURCE_TYPE" jdbcType="VARCHAR" property="resourceType" />
+        <result column="CRATE_USER" jdbcType="VARCHAR" property="crateUser" />
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="UPDATE_USER" jdbcType="VARCHAR" property="updateUser" />
+        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    </resultMap>
 
-    <!--<sql id="table_columns">-->
-            <!--ID,-->
-            <!--ROLE_ID,-->
-            <!--RESOURCE_ID,-->
-            <!--RESOURCE_TYPE,-->
-            <!--CRATE_USER,-->
-            <!--CREATE_TIME,-->
-            <!--UPDATE_USER,-->
-            <!--UPDATE_TIME-->
-    <!--</sql>-->
-    <!--<sql id="entity_properties">-->
-            <!--#{id},-->
-            <!--#{roleId},-->
-            <!--#{resourceId},-->
-            <!--#{resourceType},-->
-            <!--#{crateUser},-->
-            <!--#{createTime},-->
-            <!--#{updateUser},-->
-            <!--#{updateTime}-->
-    <!--</sql>-->
+    <sql id="table_columns">
+            ID,
+            ROLE_ID,
+            RESOURCE_ID,
+            RESOURCE_TYPE,
+            CRATE_USER,
+            CREATE_TIME,
+            UPDATE_USER,
+            UPDATE_TIME
+    </sql>
+    <sql id="entity_properties">
+            #{id},
+            #{roleId},
+            #{resourceId},
+            #{resourceType},
+            #{crateUser},
+            #{createTime},
+            #{updateUser},
+            #{updateTime}
+    </sql>
 
-    <!--&lt;!&ndash; 使用like用法：columnName like concat('%',#{columnName},'%') &ndash;&gt;-->
-    <!--<sql id="page_where">-->
-        <!--<trim prefix="where" prefixOverrides="and | or ">-->
-			<!--<if test="id != null">and ID = #{id}</if>-->
-            <!--<if test="roleId != null and roleId != ''">and ROLE_ID = #{roleId}</if>-->
-            <!--<if test="resourceId != null and resourceId != ''">and RESOURCE_ID = #{resourceId}</if>-->
-            <!--<if test="resourceType != null and resourceType != ''">and RESOURCE_TYPE = #{resourceType}</if>-->
-            <!--<if test="crateUser != null and crateUser != ''">and CRATE_USER = #{crateUser}</if>-->
-			<!--<if test="createTime != null">and CREATE_TIME = #{createTime}</if>-->
-            <!--<if test="updateUser != null and updateUser != ''">and UPDATE_USER = #{updateUser}</if>-->
-			<!--<if test="updateTime != null">and UPDATE_TIME = #{updateTime}</if>-->
-        <!--</trim>-->
-        <!--<if test="page != null and page.sort!=null and page.sort!=''">-->
-            <!--order by ${page.sort} ${page.order}-->
-        <!--</if>-->
-        <!--&lt;!&ndash; <if test="page == null or page.sort == null or page.sort == ''">order by sort </if> &ndash;&gt;-->
-    <!--</sql>-->
+    <!-- 使用like用法：columnName like concat('%',#{columnName},'%') -->
+    <sql id="page_where">
+        <trim prefix="where" prefixOverrides="and | or ">
+			<if test="id != null">and ID = #{id}</if>
+            <if test="roleId != null and roleId != ''">and ROLE_ID = #{roleId}</if>
+            <if test="resourceId != null and resourceId != ''">and RESOURCE_ID = #{resourceId}</if>
+            <if test="resourceType != null and resourceType != ''">and RESOURCE_TYPE = #{resourceType}</if>
+            <if test="crateUser != null and crateUser != ''">and CRATE_USER = #{crateUser}</if>
+			<if test="createTime != null">and CREATE_TIME = #{createTime}</if>
+            <if test="updateUser != null and updateUser != ''">and UPDATE_USER = #{updateUser}</if>
+			<if test="updateTime != null">and UPDATE_TIME = #{updateTime}</if>
+        </trim>
+        <if test="page != null and page.sort!=null and page.sort!=''">
+            order by ${page.sort} ${page.order}
+        </if>
+        <!-- <if test="page == null or page.sort == null or page.sort == ''">order by sort </if> -->
+    </sql>
 
-    <!--<insert id="insert" parameterType="com.common.entity.domain.SysMapRoleResource">-->
-        <!--insert into sys_map_role_resource( <include refid="table_columns" /> )-->
-        <!--values ( <include refid="entity_properties" /> )-->
-    <!--</insert>-->
+    <insert id="insert" parameterType="com.common.entity.domain.SysMapRoleResource">
+        insert into sys_map_role_resource( <include refid="table_columns" /> )
+        values ( <include refid="entity_properties" /> )
+    </insert>
 
-    <!--<insert id="insertBatch" parameterType="java.util.List">-->
-        <!--insert into sys_map_role_resource( <include refid="table_columns" /> )-->
-        <!--values-->
-        <!--<foreach collection="list" item="item" index="index" separator=",">-->
-            <!--(-->
-            <!--#{item.id},-->
-                    <!--#{item.roleId},-->
-                    <!--#{item.resourceId},-->
-                    <!--#{item.resourceType},-->
-                    <!--#{item.crateUser},-->
-                    <!--#{item.createTime},-->
-                    <!--#{item.updateUser},-->
-                    <!--#{item.updateTime}-->
-        <!--)-->
-        <!--</foreach>-->
-    <!--</insert>-->
+    <insert id="insertBatch" parameterType="java.util.List">
+        insert into sys_map_role_resource( <include refid="table_columns" /> )
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.id},
+                    #{item.roleId},
+                    #{item.resourceId},
+                    #{item.resourceType},
+                    #{item.crateUser},
+                    #{item.createTime},
+                    #{item.updateUser},
+                    #{item.updateTime}
+        )
+        </foreach>
+    </insert>
 
-    <!--<delete id="delete" parameterType="String">-->
-        <!--delete from sys_map_role_resource-->
-        <!--where id = #{id}-->
-    <!--</delete>-->
+    <delete id="delete" parameterType="String">
+        delete from sys_map_role_resource
+        where id = #{id}
+    </delete>
 
-    <!--<update id="deleteBatch">-->
-        <!--update sys_map_role_resource set delete_flag = 1-->
-        <!--where id in-->
-        <!--<foreach collection="array" item="id" open="(" separator="," close=")">-->
-        <!--#{id}-->
-        <!--</foreach>-->
-    <!--</update>-->
+    <update id="deleteBatch">
+        update sys_map_role_resource set delete_flag = 1
+        where id in
+        <foreach collection="array" item="id" open="(" separator="," close=")">
+        #{id}
+        </foreach>
+    </update>
 
-    <!--<update id="deleteLogic" parameterType="String">-->
-        <!--update sys_map_role_resource set delete_flag = 1-->
-        <!--where id = #{id}-->
-    <!--</update>-->
+    <update id="deleteLogic" parameterType="String">
+        update sys_map_role_resource set delete_flag = 1
+        where id = #{id}
+    </update>
 
-    <!--<update id="update" parameterType="com.common.entity.domain.SysMapRoleResource">-->
-        <!--update sys_map_role_resource-->
-        <!--<trim prefix="set" suffixOverrides=",">-->
-            <!--<if test="roleId != null and roleId != ''">ROLE_ID = #{roleId},</if>-->
-            <!--<if test="resourceId != null and resourceId != ''">RESOURCE_ID = #{resourceId},</if>-->
-            <!--<if test="resourceType != null and resourceType != ''">RESOURCE_TYPE = #{resourceType},</if>-->
-            <!--<if test="crateUser != null and crateUser != ''">CRATE_USER = #{crateUser},</if>-->
-			<!--<if test="createTime != null">CREATE_TIME = #{createTime},</if>-->
-            <!--<if test="updateUser != null and updateUser != ''">UPDATE_USER = #{updateUser},</if>-->
-			<!--<if test="updateTime != null">UPDATE_TIME = #{updateTime},</if>-->
-        <!--</trim>-->
-        <!--<where>id = #{id}</where>-->
-    <!--</update>-->
+    <update id="update" parameterType="com.common.entity.domain.SysMapRoleResource">
+        update sys_map_role_resource
+        <trim prefix="set" suffixOverrides=",">
+            <if test="roleId != null and roleId != ''">ROLE_ID = #{roleId},</if>
+            <if test="resourceId != null and resourceId != ''">RESOURCE_ID = #{resourceId},</if>
+            <if test="resourceType != null and resourceType != ''">RESOURCE_TYPE = #{resourceType},</if>
+            <if test="crateUser != null and crateUser != ''">CRATE_USER = #{crateUser},</if>
+			<if test="createTime != null">CREATE_TIME = #{createTime},</if>
+            <if test="updateUser != null and updateUser != ''">UPDATE_USER = #{updateUser},</if>
+			<if test="updateTime != null">UPDATE_TIME = #{updateTime},</if>
+        </trim>
+        <where>id = #{id}</where>
+    </update>
 
-    <!--<select id="findAll" resultMap="baseResult">-->
-        <!--select <include refid="table_columns" />-->
-        <!--from sys_map_role_resource-->
-    <!--</select>-->
+    <select id="findAll" resultMap="baseResult">
+        select <include refid="table_columns" />
+        from sys_map_role_resource
+    </select>
 
-    <!--<select id="findList" resultMap="baseResult">-->
-        <!--select <include refid="table_columns" />-->
-        <!--from sys_map_role_resource-->
-        <!--<include refid="page_where" />-->
-    <!--</select>-->
+    <select id="findList" resultMap="baseResult">
+        select <include refid="table_columns" />
+        from sys_map_role_resource
+        <include refid="page_where" />
+    </select>
 
-    <!--<select id="getCount" resultType="int" >-->
-        <!--select count(id) from sys_map_role_resource-->
-        <!--<include refid="page_where" />-->
-    <!--</select>-->
+    <select id="getCount" resultType="int" >
+        select count(id) from sys_map_role_resource
+        <include refid="page_where" />
+    </select>
 
 
-    <!--<select id="get" resultMap="baseResult" parameterType="String" >-->
-        <!--select <include refid="table_columns" />-->
-        <!--from sys_map_role_resource-->
-        <!--where id = #{id}-->
-    <!--</select>-->
+    <select id="get" resultMap="baseResult" parameterType="String" >
+        select <include refid="table_columns" />
+        from sys_map_role_resource
+        where id = #{id}
+    </select>
 
     <!-- 其他自定义SQL -->
 </mapper>

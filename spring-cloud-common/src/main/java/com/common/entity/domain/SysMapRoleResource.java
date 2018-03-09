@@ -16,15 +16,45 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class SysMapRoleResource extends BaseEntity<SysMapRoleResource> {
     private static final long serialVersionUID = 1L;
-
+    /**
+     *
+     */
     private Integer id;
-    private String roleId;  /* 角色编码 */
-    private String resourceId;  /* 菜单或资源编码  */
-    private String resourceType;  /* 类型；1-菜单，2-资源  */
-    private String crateUser;  /* 创建人 */
-    private Date createTime;  /* 创建时间  */
-    private String updateUser;  /* 更新人 */
-    private Date updateTime;  /* 更新时间 */
+    
+    /**
+     * 角色编码
+     */
+    private String roleId;
+    
+    /**
+     * 菜单或资源编码
+     */
+    private String resourceId;
+    
+    /**
+     * 类型；1-菜单，2-资源
+     */
+    private String resourceType;
+    
+    /**
+     * 创建人
+     */
+    private String crateUser;
+    
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+    
+    /**
+     * 更新人
+     */
+    private String updateUser;
+    
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
 
     //其他自定义属性
     @JsonIgnore
