@@ -7,6 +7,7 @@ import com.common.entity.domain.SysMapRoleResource;
 import com.common.util.Page;
 import com.system.service.SysMapRoleResourceService;
 
+import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 角色和资源信息关联的RestController
  */
+@Api(value = "SysMapRoleResourceController", description = "角色和资源信息关联的RestController")
 @RestController
 public class SysMapRoleResourceController extends BaseController {
     private static final Logger logger = LoggerFactory.getLogger(SysMapRoleResourceController.class);

@@ -6,6 +6,7 @@ import com.common.entity.domain.SysRole;
 import com.common.util.Page;
 
 import com.system.service.SysRoleService;
+import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
@@ -21,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 角色和资源信息关联的RestController
  */
+@Api(value = "SysRoleController", description = "角色和资源信息关联的RestController")
 @RestController
 public class SysRoleController extends BaseController {
     private static final Logger logger = LoggerFactory.getLogger(SysRoleController.class);

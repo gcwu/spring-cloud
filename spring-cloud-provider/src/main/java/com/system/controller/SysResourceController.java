@@ -6,6 +6,7 @@ import com.common.entity.domain.SysResource;
 import com.common.util.Page;
 
 import com.system.service.SysResourceService;
+import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
@@ -21,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 角色和资源信息关联的RestController
  */
+@Api(value = "SysResourceController", description = "角色和资源信息关联的RestController")
 @RestController
 public class SysResourceController extends BaseController {
     private static final Logger logger = LoggerFactory.getLogger(SysResourceController.class);
