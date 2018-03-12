@@ -21,21 +21,17 @@ public class TestController {
 
     @RequestMapping(value = "/test/{id}", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public String test(@PathVariable Integer id, HttpServletRequest request) {
+    public String test(@PathVariable Integer id, HttpServletRequest request)  throws Exception{
         String res = "拿到数字" + id+"端口号"+request.getRequestURL().toString();
         logger.info("---->success{}",res);
+
         return res;
     }
     @RequestMapping(value = "/hello/{name}", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public String hello(@PathVariable String name, HttpServletRequest request) {
-        try {
-            Thread.sleep(2000);
-        } catch (Exception e) {
-
-        }
-        String res = "欢迎" + name+"端口号"+request.getRequestURL().toString();
-        return res;
+    public String hello(@PathVariable String name, HttpServletRequest request) throws Exception{
+        userService.testInsert();
+        return "ok";
     }
     @RequestMapping(value = "/getUser/{id}", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)

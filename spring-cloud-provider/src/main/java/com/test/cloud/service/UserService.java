@@ -4,4 +4,8 @@ import com.test.cloud.entity.User;
 
 public interface UserService {
     User queryUserList();
+
+    void insert();
+
+    void  testInsert();
 }

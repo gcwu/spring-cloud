@@ -25,7 +25,7 @@ public class HelloController {
 	@ApiOperation(value="hello", notes="hello")
 	@GetMapping("/hello")
 	@ResponseBody
-	public String hello() {
+	public String hello() throws Exception{
 		String result = helloService.hello("hello");
 		HystrixCircuitBreaker breaker = HystrixCircuitBreaker.Factory
 				.getInstance(HystrixCommandKey.Factory
@@ -33,14 +33,7 @@ public class HelloController {
 		System.out.println("断路器状态" + breaker.isOpen());
 		return result;
 	}
-	@ApiOperation(value="获取用户详细信息", notes="根据url的id来获取用户详细信息")
-	@GetMapping("/getUser")
-	@ResponseBody
-	public User getUser() {
-		logger.info("--->调用/getUser成功");
-		User result = helloService.getUser(123);
-		return result;
-	}
+
 	@GetMapping("/hello/test1")
 	@ResponseBody
 	@ApiOperation(value="获取用户详细信息", notes="根据url的id来获取用户详细信息")

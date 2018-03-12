@@ -3,7 +3,7 @@
 | 路径 | 功能 | 模块          
 | ---------------------  | ------------ | ---------
 | /spring-cloud-common   | 公共模块     | 核心，公用代码都写在这里，例如公用的实体，通用工具类等
-| /spring-cloud-server   | 服务         | 核心
+| /spring-cloud-server   | eureka服务   | 核心
 | /spring-cloud-provider | 提供者       | 核心
 | /spring-cloud-consumer | 消费者       | 核心
 | /spring-cloud-dashboard| 监控         | 核心

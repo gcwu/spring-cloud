@@ -15,4 +15,8 @@
     </select>
 
 
+    <select id="insert">
+        insert into user (userId,username,password) values ('123','123','123')
+    </select>
+
 </mapper>
