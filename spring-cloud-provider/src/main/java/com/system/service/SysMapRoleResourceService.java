@@ -11,4 +11,5 @@ import com.common.entity.domain.SysMapRoleResource;
  * @date 2018-3-8
  */
 public interface SysMapRoleResourceService extends BaseService<SysMapRoleResource> {
+
 }

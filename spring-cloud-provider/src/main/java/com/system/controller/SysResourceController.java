@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 /**
- * 角色和资源信息关联的RestController
+ * 用户和角色关联信息的RestController
  */
 @Api(value = "SysResourceController", description = "角色和资源信息关联的RestController")
 @RestController

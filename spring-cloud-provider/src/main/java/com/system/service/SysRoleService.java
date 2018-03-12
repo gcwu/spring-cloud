@@ -11,4 +11,5 @@ import com.common.entity.domain.SysRole;
  * @date 2018-3-8
  */
 public interface SysRoleService extends BaseService<SysRole> {
+
 }

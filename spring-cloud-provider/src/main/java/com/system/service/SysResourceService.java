@@ -11,4 +11,5 @@ import com.common.entity.domain.SysResource;
  * @date 2018-3-8
  */
 public interface SysResourceService extends BaseService<SysResource> {
+
 }

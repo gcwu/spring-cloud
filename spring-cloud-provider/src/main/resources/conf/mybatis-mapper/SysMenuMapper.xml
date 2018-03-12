@@ -160,4 +160,48 @@
     </select>
 
     <!-- 其他自定义SQL -->
+    <!--根据用户进行查询菜单-->
+    <select id="fetchUserMenu" resultMap="baseResult" parameterType="String" >
+        select DISTINCT
+        a.ID,
+        a.CODE,
+        a.NAME,
+        a.URL,
+        a.PARENT_ID,
+        a.LEVEL,
+        a.SEQ,
+        a.STATUS,
+        a.REMARK,
+        a.CREATE_USER,
+        a.CREATE_TIME,
+        a.UPDETE_USER,
+        a.UPDATE_TIME
+         FROM sys_menu a
+        INNER JOIN sys_map_role_resource b
+        ON a.id=b.resource_id
+        AND b.resource_type=1
+        AND b.role_id IN (SELECT role_id FROM sys_map_user_role  WHERE user_id=#{userId})
+    </select>
+    <!--根据角色进行查 询菜单-->
+    <select id="fetchRoleMenu" resultMap="baseResult" parameterType="String" >
+        select DISTINCT
+        a.ID,
+        a.CODE,
+        a.NAME,
+        a.URL,
+        a.PARENT_ID,
+        a.LEVEL,
+        a.SEQ,
+        a.STATUS,
+        a.REMARK,
+        a.CREATE_USER,
+        a.CREATE_TIME,
+        a.UPDETE_USER,
+        a.UPDATE_TIME
+         FROM sys_menu a
+        INNER JOIN sys_map_role_resource b
+        ON a.id=b.resource_id
+        AND b.resource_type=1
+        AND b.role_id =#{roleId}
+    </select>
 </mapper>

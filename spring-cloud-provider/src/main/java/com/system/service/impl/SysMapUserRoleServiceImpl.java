@@ -18,5 +18,5 @@ import javax.annotation.Resource;
 public class SysMapUserRoleServiceImpl extends BaseServiceImpl<SysMapUserRoleMapper, SysMapUserRole> implements SysMapUserRoleService {
     //@Resource
     //private SysMapUserRoleMapper sysMapUserRoleMapper;
-
+    
 }

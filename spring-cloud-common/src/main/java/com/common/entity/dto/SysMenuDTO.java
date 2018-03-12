@@ -5,6 +5,7 @@ import com.common.entity.domain.SysMenu;
 import java.util.Date;
 
 import java.io.Serializable;
+import java.util.List;
 
 
 /**
@@ -29,7 +30,7 @@ public class SysMenuDTO implements Serializable {
     private Date    createTime;         /* 创建时间  */
     private String    updeteUser;         /* 更新人 */
     private Date    updateTime;         /* 更新时间 */
-
+    private List<SysMenu> childrenTree;      //获取子目录
     // 从 DTO 生成新的数据库模型
     public SysMenu toSysMenuObject() {
         SysMenu obj = new SysMenu();
@@ -188,5 +189,13 @@ public class SysMenuDTO implements Serializable {
     
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+    
+    public List<SysMenu> getChildrenTree() {
+        return childrenTree;
+    }
+    
+    public void setChildrenTree(List<SysMenu> childrenTree) {
+        this.childrenTree = childrenTree;
     }
 }

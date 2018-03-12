@@ -11,4 +11,5 @@ import com.common.entity.domain.SysUser;
  * @date 2018-3-8
  */
 public interface SysUserService extends BaseService<SysUser> {
+
 }

@@ -10,4 +10,5 @@ import com.common.entity.domain.SysMapUserRole;
  * @date 2018-3-8
  */
 public interface SysMapUserRoleService extends BaseService<SysMapUserRole> {
+
 }

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 /**
- * 角色和资源信息关联的RestController
+ * 菜单的RestController
  */
 @Api(value = "SysMenuController", description = "角色和资源信息关联的RestController")
 @RestController
@@ -36,8 +36,7 @@ public class SysMenuController extends BaseController {
      * @param request
      * @return
      */
-    @RequestMapping(value = "/sysMenu/getId/{id}", method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/sysMenu/getId/{id}", method = RequestMethod.GET)
     public Object getId(@PathVariable String id, HttpServletRequest request) {
         return sysMenuService.get(id);
     }
@@ -96,5 +95,30 @@ public class SysMenuController extends BaseController {
 	    sysMenuService.insert(model);
         return renderSuccessResult();
     }
+	
+	/**
+	 * 根据较色id查询菜单
+	 * @param roleId
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "/sysMenu/getRoleMenu/{roleId}", method = RequestMethod.GET)
+	public Object getRoleMenu(@PathVariable String roleId, HttpServletRequest request) {
+		//加入分页的page和pageSize属性，可以直接在前端设定
+	 
+		return sysMenuService.fetchRoleMenu(roleId);
+	}
+	
+	/**
+	 * 根据用户id查询菜单
+	 * @param userId
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "/sysMenu/getUserMenu/{userId}", method = RequestMethod.GET)
+	public Object getUserMenu(@PathVariable String userId, HttpServletRequest request) {
+		
+		return sysMenuService.fetchUserMenu(userId);
+	}
 }
 
