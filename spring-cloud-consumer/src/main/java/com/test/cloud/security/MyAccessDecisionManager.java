@@ -6,8 +6,11 @@ import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.web.FilterInvocation;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -20,10 +23,16 @@ public class MyAccessDecisionManager implements AccessDecisionManager {
     //configAttributes 为MyInvocationSecurityMetadataSource的getAttributes(Object object)这个方法返回的结果，此方法是为了判定用户请求的url 是否在权限表中，如果在权限表中，则返回给 decide 方法，用来判定用户是否有此权限。如果不在权限表中则放行。
     @Override
     public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> configAttributes) throws AccessDeniedException, InsufficientAuthenticationException {
-
+        HttpServletRequest request = ((FilterInvocation) object).getHttpRequest();
         if(null== configAttributes || configAttributes.size() <=0) {
             return;
         }
+        if(matchers("/hello/**", request)
+                ||matchers("/login", request)
+                ||matchers("/**", request)
+                ){
+            return;
+        }else{
         ConfigAttribute c;
         String needRole;
         for(Iterator<ConfigAttribute> iter = configAttributes.iterator(); iter.hasNext(); ) {
@@ -34,6 +43,7 @@ public class MyAccessDecisionManager implements AccessDecisionManager {
                     return;
                 }
             }
+        }
         }
         throw new AccessDeniedException("no right");
     }
@@ -46,5 +56,13 @@ public class MyAccessDecisionManager implements AccessDecisionManager {
     @Override
     public boolean supports(Class<?> clazz) {
         return true;
+    }
+
+    private boolean matchers(String url, HttpServletRequest request) {
+        AntPathRequestMatcher matcher = new AntPathRequestMatcher(url);
+        if (matcher.matches(request)) {
+            return true;
+        }
+        return false;
     }
 }

@@ -24,11 +24,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/home").permitAll()///home页面可不用权限访问
-                .anyRequest().authenticated()
+                .antMatchers("/**").permitAll()
+                //.antMatchers( "/hello/**").permitAll()//home页面可不用权限访问
+                //.anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")//指定登录页面
+                .failureHandler(new AuthenticationFailureHandlerImpl())
                 .successHandler(new AuthenticationSuccessHandlerImpl())
                 .permitAll()
                 .and()

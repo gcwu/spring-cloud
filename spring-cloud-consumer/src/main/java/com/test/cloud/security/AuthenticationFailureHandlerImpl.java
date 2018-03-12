@@ -31,9 +31,9 @@ public class AuthenticationFailureHandlerImpl implements AuthenticationFailureHa
         if(StringUtils.isNotBlank(exception.getMessage())) {
             message = exception.getMessage();
         }
-        logger.error("登录失败---"+message);
+        logger.error("失败页面---"+message);
         map.put("code","0001");
-        map.put("msg","用户名或者密码错误");
+        map.put("msg","失败页面");
         //将实体对象转换为JSON Object转换
         String responseJSONObject = JSONObject.toJSONString(map);
         response.setCharacterEncoding("UTF-8");

@@ -18,6 +18,9 @@
     启动后访问 http://localhost:8082/hystrix
     输入消费者访问地址  Single Hystrix App: http://localhost:port/hystrix.stream
 
+### swagger 访问
+     访问地址 http://localhost:8083/swagger-ui.html
+
 ### spring security
     项目集成spring security
     目前授权方式：http://localhost:8083/login?username=admin&password=admin
