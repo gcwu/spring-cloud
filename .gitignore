@@ -9,4 +9,4 @@ lib
 /target
 .idea
 .log
-.iml
+*.iml
